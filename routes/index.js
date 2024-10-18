@@ -8,9 +8,9 @@ const experienceRoutes = require('./experienceRoutes');
 const footerRoutes = require('./footerRoutes');
 const headerRoutes = require('./headerRoutes');
 const homeRoutes = require('./homeRoutes');
-const projectRoutes = require('./projectRoutes');
+const projectRoutes = require('./projectsRoutes');
 const resumeRoutes = require('./resumeRoutes');
-const skillRoutes = require('./skillRoutes');
+const skillRoutes = require('./skillsRoutes');
 
 router.use('/about', aboutRoutes);
 router.use('/contact', contactRoutes);
