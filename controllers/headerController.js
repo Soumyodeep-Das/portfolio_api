@@ -46,7 +46,7 @@ const deleteHeader = async (req, res) => {
         if (header == null) {
             return res.status(404).json({ message: 'Header not found' });
         }
-        await header.remove();
+        await Header.findByIdAndDelete(req.params.id);
         res.json({ message: 'Header deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

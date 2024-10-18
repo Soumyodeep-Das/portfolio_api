@@ -48,7 +48,7 @@ const deleteProject = async (req, res) => {
         if (project == null) {
             return res.status(404).json({ message: 'Project not found' });
         }
-        await project.remove();
+        await Projects.findByIdAndDelete(req.params.id);
         res.json({ message: 'Project deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

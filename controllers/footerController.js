@@ -45,7 +45,7 @@ const deleteFooter = async (req, res) => {
         if (footer == null) {
             return res.status(404).json({ message: 'Footer not found' });
         }
-        await footer.remove();
+        await Footer.findByIdAndDelete(req.params.id);
         res.json({ message: 'Footer deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

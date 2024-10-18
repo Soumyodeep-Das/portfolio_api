@@ -46,7 +46,7 @@ const deleteAbout = async (req, res) => {
         if (about == null) {
             return res.status(404).json({ message: 'About not found' });
         }
-        await about.remove();
+        await About.findByIdAndDelete(req.params.id);
         res.json({ message: 'About deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

@@ -45,7 +45,7 @@ const deleteContact = async (req, res) => {
         if (contact == null) {
             return res.status(404).json({ message: 'Contact not found' });
         }
-        await contact.remove();
+        await Contact.findByIdAndDelete(req.params.id);
         res.json({ message: 'Contact deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });
@@ -113,7 +113,7 @@ const deleteForm = async (req, res) => {
         if (form == null) {
             return res.status(404).json({ message: 'Form not found' });
         }
-        await form.remove();
+        await Form.findByIdAndDelete(req.params.id);
         res.json({ message: 'Form deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

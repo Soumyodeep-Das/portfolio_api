@@ -33,7 +33,7 @@ const deleteSkills = async (req, res) => {
         if (skill == null) {
             return res.status(404).json({ message: 'Skill not found' });
         }
-        await skill.remove();
+        await skillSkill.findByIdAndDelete(req.params.id);
         res.json({ message: 'Skill deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });
@@ -90,7 +90,7 @@ const deleteTechnology = async (req, res) => {
         if (technology == null) {
             return res.status(404).json({ message: 'Technology not found' });
         }
-        await technology.remove();
+        await Technology.findByIdAndDelete(req.params.id);
         res.json({ message: 'Technology deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

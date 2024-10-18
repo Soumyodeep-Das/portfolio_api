@@ -34,7 +34,7 @@ const deleteResume = async (req, res) => {
         if (resume == null) {
             return res.status(404).json({ message: 'Resume not found' });
         }
-        await resume.remove();
+        await Resume.findByIdAndDelete(req.params.id);
         res.json({ message: 'Resume deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

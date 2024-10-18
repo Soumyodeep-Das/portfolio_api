@@ -48,7 +48,7 @@ const deleteHome = async (req, res) => {
         if (home == null) {
             return res.status(404).json({ message: 'Home not found' });
         }
-        await home.remove();
+        await Home.findByIdAndDelete(req.params.id);
         res.json({ message: 'Home deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });

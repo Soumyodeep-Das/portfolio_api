@@ -49,7 +49,7 @@ const deleteEducation = async (req, res) => {
         if (education == null) {
             return res.status(404).json({ message: 'Education not found' });
         }
-        await education.remove();
+        await Education.findByIdAndDelete(req.params.id);
         res.json({ message: 'Education deleted' });
     } catch (error) {
         return res.status(500).json({ message: error.message });
