@@ -1,42 +1,25 @@
-const express = require("express")
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
 
-const app = express()
-const PORT = 8000
+// const educationRoutes = require('./routes/educationRoutes');
+// const homeRoutes = require('./routes/homeRoutes');
 
-// Middleware | Plugin
-app.use(express.urlencoded({extended: false}))
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Routes
+// app.use('/api/education', educationRoutes);
+// app.use('/api/home', homeRoutes);
 
-// Route for api
+// MongoDB Connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
-app.get("/api/home", (req, res) => {
-    return res.json()
-})
-app.get("/api/about", (req, res) => {
-    return res.json()
-})
-app.get("/api/header", (req, res) => {
-    return res.json()
-})
-app.get("/api/education", (req, res) => {
-    return res.json()
-})
-app.get("/api/skills", (req, res) => {
-    return res.json()
-})
-app.get("/api/experience", (req, res) => {
-    return res.json()
-})
-app.get("/api/projects", (req, res) => {
-    return res.json()
-})
-app.get("/api/resume", (req, res) => {
-    return res.json()
-})
-app.get("/api/contact", (req, res) => {
-    return res.json()
-})
-app.get("/api/footer", (req, res) => {
-    return res.json()
-})
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
