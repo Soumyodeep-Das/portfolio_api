@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "predeploy": "mkdir -p build && cp -r * build/",
-    "deploy": "gh-pages -d build",
     "start" : "node index.js"
   },
   "author": "",
